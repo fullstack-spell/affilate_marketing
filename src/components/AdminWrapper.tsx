@@ -142,7 +142,7 @@ const links = [
             },
             {
                 name: 'Webnier Completion',
-                links: '/admin/webnier-completion',
+                links: '/admin/webinar-completion',
                 icon: <TbCertificate size={25} />
             },
             {
@@ -154,12 +154,6 @@ const links = [
         icon: <PiCertificateBold size={25} />
     },
 ]
-
-
-{/* <Link to={item?.links} key={i} className={`flex items-center  gap-2 ${expand ? 'px-3' : 'justify-center'}`}>
-                            {item?.icon}
-                            {expand && <h6 className="text-sm font-medium"> {item?.name}</h6>}
-                        </Link> */}
 
 const AdminWrapper
     = () => {
