@@ -163,7 +163,7 @@ const AdminWrapper
         return (
             <div className="flex flex-col h-screen overflow-hidden">
                 <div className="w-full px-5 py-3 sticky top-0 !bg-white z-100 border-b shadow flex  pr-10 h-[70px] justify-between items-center gap-10">
-                    <img src={'https://spellhosting.com/assets/img/logo.png'} alt="logo" className="w-[170px]" />
+                    <img src={'https://spellinnovation.com/uploads/25-04-19-06-32-34image-removebg-preview%20(1).png'} alt="logo" className="w-[170px]" />
                     <Popover placement="bottomRight" content={<div className="space-y-2 p-2 py-1 pr-10">
                         <h6 className="flex items-center text-base font-semibold gap-2">
                             <FaUser />

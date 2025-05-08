@@ -1,29 +1,14 @@
 import { Button, Dropdown, Space, Table } from 'antd'
+import { useEffect, useState } from 'react'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import { Link } from 'react-router'
-
-const data = [
-    {
-        id: 250,
-        image: 'https://spellhosting.com/assets/img/logo.png',
-        name: 'sdfsdffsdf',
-        description: 'sdfsdffsdf',
-        point_wise_description: ['sdfsdffsdf', 'sdfsdffsdf', 'sdfsdffsdf'],
-    },
-]
+import { authorized } from '../../../utils/axios'
 
 const columns = [{
     title: 'ID',
     dataIndex: 'id',
     key: 'id',
     width: 70,
-},
-{
-    title: 'Image',
-    dataIndex: 'image',
-    key: 'image',
-    width: 100,
-    render: (text: string) => <img src={text} alt="image" className='w-10 h-10 rounded-full' />,
 },
 {
     title: 'Name',
@@ -75,6 +60,27 @@ const columns = [{
 ]
 
 const Plans = () => {
+    const [loading,setLoading] = useState(false)
+    const [data,setData] = useState([])
+
+const getPlans = async() => {
+    try {
+        setLoading(true)
+
+        const res = await authorized.get('/plan')
+        
+        setData(res?.data?.data)
+        setLoading(false)
+    } catch (error:any) {
+        console.error(error?.response?.data?.message);
+        setLoading(false)
+    }
+}
+
+useEffect(()=>{
+getPlans()
+},[])
+
     return (
         <div className="pb-5">
 
@@ -130,6 +136,7 @@ const Plans = () => {
             </Form> */}
 
             <Table
+                loading={loading}
                 tableLayout="fixed"
                 scroll={{ x: '1200' }}
                 columns={columns}
