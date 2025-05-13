@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react"
-import { authorized } from "../../../utils/axios"
 import { Button, Drawer, Dropdown, Form, Input, Space, Table } from "antd"
-import { Link } from "react-router"
-import { MdKeyboardArrowDown } from "react-icons/md"
 import FormItem from "antd/es/form/FormItem"
+import { useEffect, useState } from "react"
+import { MdKeyboardArrowDown } from "react-icons/md"
+import { authorized } from "../../../utils/axios"
 
 const Courses = () => {
         const [loading,setLoading] = useState(false)
@@ -28,6 +27,21 @@ const Courses = () => {
     useEffect(()=>{
     getCouruses()
     },[])
+
+    
+    const deleteCourse = async(id:string)=>{
+           try {
+            setLoading(true)
+
+             await authorized.delete(`/course/${id}`)
+
+            getCouruses()
+            setLoading(false)
+        } catch (error:any) {
+            console.error(error?.response?.data?.message);
+            setLoading(false)
+        }
+    }
 
     
 const columns = [{
@@ -57,16 +71,17 @@ const columns = [{
 {
     title: 'Action',
     width: 130,
-    render: () => <div className='flex items-center gap-3'>
+    render: (_:any,record:any) => <div className='flex items-center gap-3'>
         <Dropdown menu={{
-
-            items: [
+ items: [
                 {
-                    label: <Link to='./view'>View</Link>,
-                    key: '1'
+                    label: 'Edit/View',
+                    key: '1',
+                    onClick:()=>setOpen(record),
                 },
                 {
                     label: 'Delete',
+                    onClick:()=>deleteCourse(record?.id),
                     key: '4',
                     danger: true,
                 }]
