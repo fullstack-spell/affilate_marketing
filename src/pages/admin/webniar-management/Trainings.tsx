@@ -107,7 +107,7 @@ const columns = [{
         <div className="pb-5">
 
         <div className='flex items-center lg:flex-row flex-col gap-5 justify-between'>
-            <h4>Training</h4>
+            <h4>Trainings</h4>
             <div onClick={()=>setOpen(true)} className='cursor-pointer text-white rounded-sm py-2 px-4 bg-spell-purple'>Add Training</div>
         </div>
 

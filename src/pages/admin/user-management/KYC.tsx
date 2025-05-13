@@ -45,8 +45,8 @@ const columns = [{
 },
 {
     title: 'GrandFather Name',
-    dataIndex: 'grandfather_name',
-    key: 'grandfather_name',
+    dataIndex: 'grand_father_name',
+    key: 'grand_father_name',
     width: 300,
 },
 {
