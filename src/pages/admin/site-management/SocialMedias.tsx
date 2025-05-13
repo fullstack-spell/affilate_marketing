@@ -53,16 +53,16 @@ const SocialMedias = () => {
   layout='vertical'
   form={form}
    size="large">
-        <FormItem rules={[{required:true}]} label='Facebook' name={'facebook'}>
+        <FormItem label='Facebook' name={'facebook'}>
             <Input />
         </FormItem>
-        <FormItem rules={[{required:true}]} label='Youtube' name={'youtube'}>
+        <FormItem label='Youtube' name={'youtube'}>
         <Input />
         </FormItem>
-        <FormItem rules={[{required:true}]} label='Linkdin' name={'linkdin'}>
+        <FormItem label='Linkdin' name={'linkdin'}>
         <Input />
         </FormItem>
-        <FormItem rules={[{required:true}]} label='Twitter' name={'twitter'}>
+        <FormItem label='Twitter' name={'twitter'}>
         <Input />
         </FormItem>
             <FormItem>
